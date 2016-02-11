@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="OpenCV_init_targets_0;OpenCV_init_targets_1;OpenCV_init_targets_2;OpenCV_ItemGroupInit_targets_3">
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkages-OpenCV Condition="'$(Linkages-OpenCV)' == ''">dynamic</Linkages-OpenCV>
+    <CallingConventions-OpenCV Condition="'$(CallingConventions-OpenCV)' == ''">cdecl</CallingConventions-OpenCV>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>HAS_OPENCV;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_videostab249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_video249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_ts249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_superres249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_stitching249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_photo249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_ocl249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_objdetect249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_nonfree249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_ml249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_legacy249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_imgproc249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_highgui249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_gpu249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_flann249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_features2d249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_core249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_contrib249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/opencv_calib3d249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_videostab249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_video249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_ts249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_superres249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_stitching249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_photo249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_ocl249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_objdetect249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_nonfree249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_ml249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_legacy249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_imgproc249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_highgui249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_gpu249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_flann249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_features2d249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_core249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_contrib249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/opencv_calib3d249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_videostab249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_video249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_ts249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_superres249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_stitching249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_photo249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_ocl249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_objdetect249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_nonfree249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_ml249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_legacy249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_imgproc249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_highgui249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_gpu249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_flann249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_features2d249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_core249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_contrib249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/opencv_calib3d249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_videostab249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_video249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_ts249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_superres249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_stitching249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_photo249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_ocl249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_objdetect249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_nonfree249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_ml249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_legacy249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_imgproc249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_highgui249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_gpu249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_flann249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_features2d249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_core249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_contrib249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/opencv_calib3d249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_videostab249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_video249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_ts249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_superres249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_stitching249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_photo249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_ocl249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_objdetect249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_nonfree249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_ml249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_legacy249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_imgproc249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_highgui249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_gpu249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_flann249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_features2d249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_core249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_contrib249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/opencv_calib3d249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_videostab249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_video249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_ts249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_superres249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_stitching249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_photo249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_ocl249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_objdetect249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_nonfree249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_ml249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_legacy249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_imgproc249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_highgui249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_gpu249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_flann249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_features2d249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_core249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_contrib249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/opencv_calib3d249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_videostab249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_video249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_ts249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_superres249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_stitching249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_photo249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_ocl249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_objdetect249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_nonfree249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_ml249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_legacy249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_imgproc249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_highgui249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_gpu249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_flann249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_features2d249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_core249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_contrib249.lib;$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/opencv_calib3d249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_videostab249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_video249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_ts249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_superres249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_stitching249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_photo249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_ocl249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_objdetect249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_nonfree249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_ml249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_legacy249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_imgproc249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_highgui249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_gpu249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_flann249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_features2d249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_core249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_contrib249d.lib;$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/opencv_calib3d249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="OpenCV_AfterBuild" AfterTargets="AfterBuild">
+    <Copy SkipUnchangedFiles="true" SourceFiles="@(CopyToOutput)" UseHardlinksIfPossible="true" DestinationFolder="$(TargetDir)">
+      <Output TaskParameter="DestinationFiles" PropertyName="DestinationFiles" />
+      <Output TaskParameter="DestinationFiles" ItemName="DestinationFiles" />
+      <Output TaskParameter="CopiedFiles" PropertyName="CopiedFiles" />
+      <Output TaskParameter="CopiedFiles" ItemName="CopiedFiles" />
+    </Copy>
+  </Target>
+  <Target Name="OpenCV_BeforeLink" AfterTargets="BeforeLink">
+    <CheckRuntimeLibrary RuntimeLibrary="%(ClCompile.RuntimeLibrary)" ExpectedRuntimeLibrary="none" LibraryName="OpenCV" />
+  </Target>
+  <Target Name="OpenCV_init_targets_1">
+    <StringContains Text="Linkages-dynamic" Library="OpenCV" Value="dynamic" Condition="'$(Linkages-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-OpenCV" />
+    </StringContains>
+    <StringContains Text="Linkages-static" Library="OpenCV" Value="static" Condition="'$(Linkages-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-OpenCV" />
+    </StringContains>
+    <StringContains Text="Linkages-ltcg" Library="OpenCV" Value="ltcg" Condition="'$(Linkages-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-OpenCV" />
+    </StringContains>
+    <StringContains Text="Linkages-sxs" Library="OpenCV" Value="sxs" Condition="'$(Linkages-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-cdecl" Library="OpenCV" Value="cdecl" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-stdcall" Library="OpenCV" Value="stdcall" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-fastcall" Library="OpenCV" Value="fastcall" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-thiscall" Library="OpenCV" Value="thiscall" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-clrcall" Library="OpenCV" Value="clrcall" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+    <StringContains Text="CallingConventions-vectorcall" Library="OpenCV" Value="vectorcall" Condition="'$(CallingConventions-OpenCV)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-OpenCV" />
+    </StringContains>
+  </Target>
+  <Target Name="OpenCV_init_targets_2">
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+  </Target>
+  <Target Name="OpenCV_ItemGroupInit_targets_3">
+    <ItemGroup Label="x64 and v110 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_calib3d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_contrib249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_core249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_features2d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_flann249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_gpu249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_highgui249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_imgproc249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_legacy249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_ml249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_nonfree249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_objdetect249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_ocl249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_photo249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_stitching249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_superres249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_video249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_videostab249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_calib3d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_contrib249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_core249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_features2d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_flann249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_gpu249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_highgui249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_imgproc249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_legacy249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_ml249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_nonfree249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_objdetect249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_ocl249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_photo249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_stitching249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_superres249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_video249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/opencv_videostab249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_calib3d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_contrib249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_core249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_features2d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_flann249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_gpu249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_highgui249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_imgproc249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_legacy249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_ml249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_nonfree249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_objdetect249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_ocl249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_photo249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_stitching249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_superres249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_video249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_videostab249d.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_calib3d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_contrib249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_core249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_features2d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_flann249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_gpu249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_highgui249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_imgproc249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_legacy249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_ml249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_nonfree249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_objdetect249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_ocl249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_photo249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_stitching249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_superres249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_video249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/opencv_videostab249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_calib3d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_contrib249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_core249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_features2d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_flann249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_gpu249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_highgui249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_imgproc249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_legacy249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_ml249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_nonfree249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_objdetect249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_ocl249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_photo249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_stitching249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_superres249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_video249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_videostab249d.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_calib3d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_contrib249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_core249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_features2d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_flann249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_gpu249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_highgui249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_imgproc249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_legacy249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_ml249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_nonfree249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_objdetect249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_ocl249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_photo249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_stitching249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_superres249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_video249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/opencv_videostab249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_calib3d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_contrib249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_core249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_features2d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_flann249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_gpu249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_highgui249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_imgproc249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_legacy249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_ml249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_nonfree249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_objdetect249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_ocl249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_photo249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_stitching249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_superres249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_video249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_videostab249d.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_calib3d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_contrib249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_core249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_features2d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_flann249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_gpu249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_highgui249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_imgproc249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_legacy249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_ml249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_nonfree249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_objdetect249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_ocl249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_photo249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_stitching249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_superres249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_video249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/opencv_videostab249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v120 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_calib3d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_contrib249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_core249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_features2d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_flann249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_gpu249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_highgui249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_imgproc249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_legacy249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_ml249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_nonfree249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_objdetect249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_ocl249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_photo249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_stitching249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_superres249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_video249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_videostab249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_calib3d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_contrib249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_core249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_features2d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_flann249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_gpu249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_highgui249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_imgproc249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_legacy249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_ml249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_nonfree249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_objdetect249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_ocl249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_photo249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_stitching249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_superres249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_video249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/opencv_videostab249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v110 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_calib3d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_contrib249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_core249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_features2d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_flann249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_gpu249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_highgui249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_imgproc249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_legacy249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_ml249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_nonfree249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_objdetect249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_ocl249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_photo249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_stitching249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_superres249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_video249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_videostab249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_calib3d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_contrib249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_core249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_features2d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_flann249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_gpu249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_highgui249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_imgproc249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_legacy249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_ml249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_nonfree249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_objdetect249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_ocl249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_photo249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_stitching249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_superres249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_video249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/opencv_videostab249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v120 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_calib3d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_contrib249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_core249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_features2d249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_flann249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_gpu249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_highgui249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_imgproc249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_legacy249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_ml249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_nonfree249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_objdetect249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_ocl249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_photo249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_stitching249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_superres249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_video249.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_videostab249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_calib3d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_contrib249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_core249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_features2d249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_flann249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_gpu249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_highgui249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_imgproc249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_legacy249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_ml249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_nonfree249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_objdetect249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_ocl249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_photo249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_stitching249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_superres249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_video249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/opencv_videostab249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_calib3d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_contrib249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_core249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_features2d249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_flann249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_gpu249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_highgui249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_imgproc249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_legacy249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_ml249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_nonfree249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_objdetect249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_ocl249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_photo249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_stitching249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_superres249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_video249d.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_videostab249d.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_calib3d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_contrib249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_core249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_features2d249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_flann249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_gpu249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_highgui249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_imgproc249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_legacy249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_ml249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_nonfree249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_objdetect249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_ocl249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_photo249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_stitching249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_superres249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_video249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/opencv_videostab249d.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v110" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/opencv_ffmpeg249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/opencv_ffmpeg249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v120" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/opencv_ffmpeg249.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/opencv_ffmpeg249.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v120" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/opencv_ffmpeg249_64.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/opencv_ffmpeg249_64.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v110" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/opencv_ffmpeg249_64.dll" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/opencv_ffmpeg249_64.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <UsingTask TaskName="NuGetPackageOverlay" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <UsingTask TaskName="CheckRuntimeLibrary" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <UsingTask TaskName="StringContains" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <Target Name="OpenCV_init_targets_0">
+    <Copy SkipUnchangedFiles="true" SourceFiles="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll.orig" DestinationFiles="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" />
+    <PropertyGroup>
+      <NugetMsBuildExtensionLoaded Condition="'$(NugetMsBuildExtensionLoaded)' == '' OR '$(NuGet-OverlayLoaded)' == 'false'">true</NugetMsBuildExtensionLoaded>
+    </PropertyGroup>
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v110_Release" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v110_Debug" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v120_Debug" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v120_Debug" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v120_Release" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v110_Release" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v120_Release" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v110_Debug" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v110" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-Win32_v120" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v120" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" />
+    <NuGetPackageOverlay Package="OpenCV.overlay-x64_v110" Version="$(Needs-OpenCV-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' )" />
+  </Target>
+</Project>
